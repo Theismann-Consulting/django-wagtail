@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.12
 
 # Install packages needed to run your application (not build deps):
 # We need to recreate the /usr/share/man/man{1..8} directories first because
@@ -46,7 +46,7 @@ ENV PORT 8000
 EXPOSE 8000
 
 # Add custom environment variables needed by Django or your settings file here:
-ENV DJANGO_SETTINGS_MODULE=bakerydemo.settings.production DJANGO_DEBUG=off
+# ENV DJANGO_SETTINGS_MODULE=bakerydemo.settings.production DJANGO_DEBUG=off
 
 # Call collectstatic with dummy environment variables:
 RUN DATABASE_URL=postgres://none REDIS_URL=none python manage.py collectstatic --noinput
